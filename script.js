@@ -8,9 +8,17 @@ var now = new Date().getTime();
 var timeDiff = countDownDay - now;
 
 // questo rieseguirà la mia funzione ogni secondo;
-setInterval (counterTimer, 1000);
+// setInterval (counterTimer, 1000);
 
 function counterTimer () {
-    // console.log(timeDiff);
-}
 
+    // calcolo in unità di misura partendo dai ms
+    // il primo calcolo considera quanti, ad es secondi, sono necessari a fare un minuto;
+    // il secondo per risalire a quanti ms sono necessari per fare l'unità di misura.
+    var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+    var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    var hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+    console.log(seconds, minutes, hours, days);
+}
