@@ -22,5 +22,10 @@ function counterTimer () {
 
     document.querySelector("div").innerHTML = days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";
+
+    if (timeDiff < 0) {
+        clearInterval(counterTimer);
+        document.querySelector("div").innerHTML = "Buona Lezione <3";
+    }
 }
 
